@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloistio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helloistio
+  template:
+    metadata:
+      labels:
+        app: helloistio
+    spec:
+      containers:
+        - name: helloistio
+          image:  hello-istio:1.0
+          ports:
+            - containerPort: 8080
