@@ -41,7 +41,11 @@ curl  http://localhost:8080/hello
 
 ```
 
-### Test without Rate limit
+### Test without Rate limit using Postman
+![postman-collection](https://github.com/user-attachments/assets/f58845b9-31c2-41de-872c-5d4b84c9b500)
+
+![postman-runner](https://github.com/user-attachments/assets/86717b9e-aa1d-4534-8d5c-7e6e975d2eea)
+
 Create a Collection say "Containers" with just one Request for
 http://localhost:8080/hello
 
@@ -68,9 +72,11 @@ kubectl exec -it podname -c istio-proxy -- pilot-agent request GET config_dump
 kubectl apply -f envoyfilter.yaml
 
 ```
+![before-ratelimit](https://github.com/user-attachments/assets/8ef1c2a1-3320-457a-bd0e-827e2d7e70ba)
 
 ### Test With Rate limit
 Run  the test with 20 request and validate _only 10_ of them have succeeded
+![after-ratelimit](https://github.com/user-attachments/assets/b33eaacc-9c36-4f26-8262-39d26e0e66ea)
 
 ### Clean up 
 
